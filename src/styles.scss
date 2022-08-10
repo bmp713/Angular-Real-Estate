@@ -1,0 +1,333 @@
+body {
+    font-family: 'Inter', 'Montserrat', 'Titilium Web', 'Arial', 'Open Sans', Menlo, Monaco, Consolas, 'Courier New';
+    font-family: 'Montserrat', 'Titilium Web', 'Arial', 'Open Sans', 'Courier New';
+    font-size: 12px;
+}
+body, html{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.container-fluid{
+    padding: 0px;
+    margin: 0px;
+}
+.page{
+    min-height: 100vh;
+}
+
+.top{
+    min-height: 50vh;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (6).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (5).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (9).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (11).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (16).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (17).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (37).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (39).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (45).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (70).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (74).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (78).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (79).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (80).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (81).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (88).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (91).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (92).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (106).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (107).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (115).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (116).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (127).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (134).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (149).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (150).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (151).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (157).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (158).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (161).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (168).jpg") no-repeat;
+
+
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (198).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (170).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (173).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (176).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (179).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (185).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (197).jpg") no-repeat;
+    // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (169).jpg") no-repeat;
+
+
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.products{
+    padding: 0px 25px;
+    min-height: 100vh;
+    border: 10px solid red;
+    input{
+        padding: 7px;
+    }
+    .search{
+        padding: 7px;
+        color: #ffff;
+        background: #000f;
+    }
+}
+.product{
+    margin: 10px;
+    padding: 10px;
+}
+.productList{
+    min-height: 70vh;
+}
+
+.filters{
+    input{
+        width: 100%;
+        padding: 7px;
+    }
+    button{
+        width: 100%;
+    }
+}
+
+.details{
+    padding: 25px 25px;
+    input, textarea{
+        margin: 5px auto;
+        width: 100%;
+        padding: 5px;
+    }
+}
+.details .top{
+    min-height: 50vh;
+    background: linear-gradient(#0007,#0007), url("./assets/real-estate (46).jpg") no-repeat;
+    background: linear-gradient(#0007,#0007), url("./assets/real-estate (35).jpg") no-repeat;
+    background: linear-gradient(#0007,#0007), url("./assets/real-estate (31).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (6).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (11).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (16).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (39).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (70).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (74).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (88).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (91).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (106).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (115).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (150).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (157).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (161).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (168).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (17).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (37).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (45).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (92).jpg") no-repeat;
+    background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (5).jpg") no-repeat;
+
+
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.submit{
+    width: 100%;
+    padding: 7px;
+    color: #ffff;
+    background: #000f;
+}
+.submit-red{
+    width: 100%;
+    padding: 7px;
+    color: #f00f;
+    background: #f000;
+    border: 2px solid #f00f;
+}
+.btn-blue{
+    width: 25%;
+    padding: 7px;
+    color: #ffff;
+    background:#1277e1;
+    border: 2px solid #1277e1;
+    transition: all 0.5s;
+}
+.btn-white{
+    width: 25%;
+    padding: 7px;
+    color: #ffff;
+    background: #f000;
+    border: 2px solid #ffff;
+    transition: all 0.5s;
+}
+
+
+.form-modal{
+    color: #ffff;
+    margin: 50px auto;
+    padding: 50px 50px;
+    width: 100%;
+    border-radius: 2px;
+
+    background: linear-gradient( #fff0,#fff0 );
+    background: linear-gradient(to left, #1277e199,#1277e199);
+
+    // background: #ffff;
+    // color: #000f;
+
+    background: #2289;
+    background: #0009;
+    color: #ffff;
+    box-shadow: 20px 20px 50px #0007
+}
+input{
+    margin: 5px;
+    padding: 10px 5px;
+    background: #ffff;
+    color: #000f;
+    width: 100%;
+    font-size: 15px !important;
+    border: 1px solid #2229;
+}
+.form-modal ::placeholder{
+    padding: 10px 0px;
+    color: #000f;
+}
+.eye-container{
+    position: relative;
+    z-index: 0;
+    .eye{
+        position: absolute;
+        right: 15px;
+        top: 18px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 2;
+  }
+}
+.text-danger, .text-success{
+    font-size: 14px;
+}
+a, p, span{
+    font-size: 16px;
+}
+
+
+.hide{
+    display: none;
+}
+.show{
+    display: inline-block;
+}
+a{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+}
+button{
+    border: none;
+    color: #0d6efd;
+    background: none;
+    box-shadow: none;
+}
+
+
+
+footer{
+  padding: 0px 0px;
+  background: #4267B2cc;
+  background: #000f;
+  a{
+      font-size: 13px;
+  }
+  .links{
+      padding: 10px 0px;
+      background: #111f;
+  }
+  .social{
+      background: #111f;
+  }
+  .copyright{
+      background: #111f;
+  }
+}
+
+
+.app-btn{
+    cursor: pointer;
+    padding: 10px 5px !important;
+    width: 200px;
+    max-width: 700px;
+    color: #ffff !important;
+    font-size: 18px;
+    background: #0000;
+    border: 2px solid #ffff;
+    border-radius: 2px;
+}
+.del-btn{
+    cursor: pointer;
+    width: 100px;
+    max-width: 700px;
+    color: #900f !important;
+    font-size: 18px;
+    background: #0000;
+    border: 1px solid #fff0;
+    border-radius: 2px;
+}
+.submit-btn{
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    color: #fff !important;
+    background: #000f !important;
+    border: 2px solid #000f;
+}
+.btn-black{
+    padding: 7px;
+    width: 100%;
+    font-size: 18px;
+    color: #fff !important;
+    background: #000f !important;
+    border: 2px solid #000f !important;
+}
+.btn-blue{
+    padding: 13px;
+    width: 200px;
+    max-width: 700px;
+    color: #ffff;
+    background: #1277e1ff;
+}
+.btn-white{
+    padding: 10px;
+    width: 200px;
+    font-size: 18px;
+    color: #222f !important;
+    background: #ffff !important;
+    border: 2px solid #fff9 !important;
+}
+.btn-white-outline{
+    padding: 7px;
+    width: 100%;
+    font-size: 18px;
+    color: #ffff !important;
+    background: #fff0 !important;
+    border: 2px solid #ffff !important;
+}
+
+
+.btn-red{
+    margin: 25px 0px;
+    padding: 10px;
+    width: 200px;
+    font-size: 18px;
+    color: #ffff !important;
+    background: #700f !important;
+    border: 2px solid #f00f !important;
+}
+
+
+
