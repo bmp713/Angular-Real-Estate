@@ -25,8 +25,8 @@ export class ProductsComponent implements OnInit {
 
     constructor( private router: Router, public route: ActivatedRoute, private http:HttpClient){
 
-        // this.http.get('http://angular-real-estate-back.herokuapp.com/read')
-        this.http.get('http://localhost:4000/read')
+        this.http.get('http://angular-real-estate-back.herokuapp.com/read')
+        // this.http.get('http://localhost:4000/read')
             .toPromise()
             .then( (data) => {
                 this.products = data;
@@ -53,8 +53,8 @@ export class ProductsComponent implements OnInit {
 
     readProducts = async () => {
         try{
-            // await fetch("http://angular-real-estate-back.herokuapp.com/read")
-            await fetch("http://localhost:4000/read")
+            await fetch("http://angular-real-estate-back.herokuapp.com/read")
+            // await fetch("http://localhost:4000/read")
               .then( response => response.json() )
               .then( data => {
                   this.products = data;
@@ -66,8 +66,8 @@ export class ProductsComponent implements OnInit {
     // Deletes product by id in Rest API
     deleteProduct = async (id:string) => {
         try{
-            // await fetch(`http://angular-real-estate-back.herokuapp.com/delete/${id}`, {
-            await fetch(`http://localhost:4000/delete/${id}`, {
+            await fetch(`http://angular-real-estate-back.herokuapp.com/delete/${id}`, {
+            // await fetch(`http://localhost:4000/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json' ,
