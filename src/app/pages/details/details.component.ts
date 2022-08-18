@@ -28,8 +28,8 @@ export class DetailsComponent implements OnInit {
 
     constructor( private router: Router, public route: ActivatedRoute ){
         try{
-          // fetch(`http://angular-real-estate-back.herokuapp.com/read/${this.route.snapshot.paramMap.get('id')}`)
-          fetch(`http://localhost:4000/read/${this.route.snapshot.paramMap.get('id')}`)
+          fetch(`http://angular-real-estate-back.herokuapp.com/read/${this.route.snapshot.paramMap.get('id')}`)
+          // fetch(`http://localhost:4000/read/${this.route.snapshot.paramMap.get('id')}`)
               .then( response => response.json() )
               .then( data => {
                   this.productInfo = data;
@@ -89,8 +89,8 @@ export class DetailsComponent implements OnInit {
         this.error = "";
 
         try{
-            // await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
-            await fetch(`http://localhost:4000/update/${this.id}`, {
+            await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
+            // await fetch(`http://localhost:4000/update/${this.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' ,
@@ -114,8 +114,8 @@ export class DetailsComponent implements OnInit {
 
     deleteProduct = async (id:string) => {
         try{
-          // await fetch(`http://angular-real-estate-back.herokuapp.com/delete/${this.id}`, {
-          await fetch(`http://localhost:4000/delete/${this.id}`, {
+          await fetch(`http://angular-real-estate-back.herokuapp.com/delete/${this.id}`, {
+          // await fetch(`http://localhost:4000/delete/${this.id}`, {
               method: 'DELETE',
               headers: {
                   'Content-Type': 'application/json',
