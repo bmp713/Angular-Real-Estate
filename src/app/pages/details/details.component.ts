@@ -34,6 +34,8 @@ export class DetailsComponent implements OnInit {
               .then( data => {
                   this.productInfo = data;
 
+                  console.log("this.productInfo = ", this.productInfo);
+
                   this.city = this.productInfo.city;
                   this.name = this.productInfo.name;
                   this.type = this.productInfo.type;
@@ -89,8 +91,8 @@ export class DetailsComponent implements OnInit {
         this.error = "";
 
         try{
-            await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
-            // await fetch(`http://localhost:4000/update/${this.id}`, {
+            // await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
+            await fetch(`http://localhost:4000/update/${this.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' ,
