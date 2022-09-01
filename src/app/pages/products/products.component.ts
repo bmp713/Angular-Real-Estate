@@ -70,8 +70,8 @@ export class ProductsComponent implements OnInit {
 
     readProducts = async () => {
         try{
-            // await fetch("http://angular-real-estate-back.herokuapp.com/read")
-            await fetch("http://localhost:4000/read")
+            await fetch("http://angular-real-estate-back.herokuapp.com/read")
+            // await fetch("http://localhost:4000/read")
               .then( response => response.json() )
               .then( data => {
                   this.products = data;
