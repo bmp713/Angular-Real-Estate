@@ -163,7 +163,6 @@ export class ProductsComponent implements OnInit {
       }
   }
 
-
   // fileUpload(event) {
   //     console.log("fileUpload()"):
   //     this.image = event.target.files[0];

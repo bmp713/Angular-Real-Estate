@@ -114,6 +114,7 @@ export class DetailsComponent implements OnInit {
         }
     }
 
+
     deleteProduct = async (id:string) => {
         try{
           await fetch(`http://angular-real-estate-back.herokuapp.com/delete/${this.id}`, {
