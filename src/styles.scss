@@ -82,6 +82,17 @@ body, html{
 
     background-size: cover;
 }
+@media( max-width:900px){
+    .top{
+      background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (27).jpg") no-repeat; background-position: 0% 0%;
+      background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (491).jpg") no-repeat; background-position: 0% 50%;
+      // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (492).jpg") no-repeat; background-position: 50% 60%;
+      // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (17).jpg") no-repeat; background-position: 0% 50%;
+      // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (412).jpg") no-repeat; background-position: 0% 85%;
+      background-size: cover;
+    }
+}
+
 .products{
     padding: 0px 25px;
     min-height: 100vh;
