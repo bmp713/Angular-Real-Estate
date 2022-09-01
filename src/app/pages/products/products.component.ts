@@ -138,8 +138,8 @@ export class ProductsComponent implements OnInit {
             // console.log("property =", property);
             // console.log("property =", JSON.stringify(property));
 
-            // await fetch(`http://angular-real-estate-back.herokuapp.com/create/${JSON.stringify(property)}`, {
-            await fetch(`http://localhost:4000/create`, {
+            await fetch(`http://angular-real-estate-back.herokuapp.com/create`, {
+            // await fetch(`http://localhost:4000/create`, {
               method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' ,
