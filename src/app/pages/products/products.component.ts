@@ -95,7 +95,7 @@ export class ProductsComponent implements OnInit {
 
                 // sort products here
 
-                console.log("XXX products.json => ", this.products)
+                console.log("products.json => ", this.products)
           });
       }catch(error){}
   }
@@ -170,19 +170,31 @@ export class ProductsComponent implements OnInit {
       }
   }
 
-  // fileUpload(event) {
-  //     console.log("fileUpload()"):
-  //     this.image = event.target.files[0];
-  // }
-
 
   fileSelected = async ( event ) => {
-      console.log("file upload = ", event.target.files[0].name);
+      console.log("file upload = ", event.target.files[0]);
+      console.log("file name = ", event.target.files[0].name);
 
-      // Binary object of file
-      this.upload = event.target.files[0];
+      const data = new FormData();
+      data.append( 'upload', event.target.files[0] );
 
       // send post request to node
+      try{
+        // await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
+        await fetch(`http://localhost:4000/upload`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json' ,
+            },
+            body: JSON.stringify({
+                image: event.target.files[0].name
+            })
+      });
+
+      }catch(err){
+            console.error(err);
+      }
+
   }
 
 }
