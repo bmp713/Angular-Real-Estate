@@ -3,6 +3,15 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+
+// const multer = require("multer");
+// const fileStorage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, "src/assets/")
+//     }
+// });
+
+
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname+'/dist/angular-real-estate'));
 

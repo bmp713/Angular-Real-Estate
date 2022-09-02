@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
     productsCount: number = 10;
     productByName: any = "";
     products: any;
+    upload: any;
 
     productInfo: any = 	{
         id: "",
@@ -77,10 +78,28 @@ export class ProductsComponent implements OnInit {
                   this.products = data;
 
                   // sort products here
-                  console.log("products.json => ", this.products)
+
+                  console.log("XXX products.json => ", this.products)
             });
         }catch(error){}
     }
+
+
+    readProductsReverse = async () => {
+      try{
+          await fetch("http://angular-real-estate-back.herokuapp.com/read")
+          // await fetch("http://localhost:4000/read")
+            .then( response => response.json() )
+            .then( data => {
+                this.products = data.reverse();
+
+                // sort products here
+
+                console.log("XXX products.json => ", this.products)
+          });
+      }catch(error){}
+  }
+
 
     // Deletes product by id in Rest API
     deleteProduct = async (id:string) => {
@@ -124,19 +143,6 @@ export class ProductsComponent implements OnInit {
         try{
 
             this.id = Math.floor(Math.random() * 10000000000000000);
-            // let property = 	{
-            //     id: this.id,
-            //     name: this.address,
-            //     city: this.city,
-            //     price: this.price,
-            //     description: this.description,
-            //     type: this.type,
-            //     rooms: this.rooms,
-            //     image: "../assets/real-estate (412).jpg"
-            // };
-
-            // console.log("property =", property);
-            // console.log("property =", JSON.stringify(property));
 
             await fetch(`http://angular-real-estate-back.herokuapp.com/create`, {
             // await fetch(`http://localhost:4000/create`, {
@@ -156,6 +162,7 @@ export class ProductsComponent implements OnInit {
                 })
             });
 
+            this.readProducts();
             this.router.navigate(['/products']);
 
             }catch(err){
@@ -168,6 +175,15 @@ export class ProductsComponent implements OnInit {
   //     this.image = event.target.files[0];
   // }
 
+
+  fileSelected = async ( event ) => {
+      console.log("file upload = ", event.target.files[0].name);
+
+      // Binary object of file
+      this.upload = event.target.files[0];
+
+      // send post request to node
+  }
 
 }
 
