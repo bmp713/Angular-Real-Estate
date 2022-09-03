@@ -168,7 +168,6 @@ export class ProductsComponent implements OnInit {
             // images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`
             // images: `http://localhost:4000/assets/${this.image}`
 
-
             this.readProducts();
             this.router.navigate(['/products']);
 
