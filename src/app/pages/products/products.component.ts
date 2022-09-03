@@ -22,6 +22,17 @@ export class ProductsComponent implements OnInit {
     upload: any = "";
     imgUploads: any;
 
+    // productInfo: any = 	{
+    //     id: "",
+    //     city: "",
+    //     name: "",
+    //     type: "",
+    //     description: "",
+    //     rooms: "",
+    //     price: "",
+    //     img: ""
+    // };
+
     id: any;
     name: any;
     price: any;
@@ -151,7 +162,8 @@ export class ProductsComponent implements OnInit {
                     description: this.description,
                     rooms: this.rooms,
                     price: this.price,
-                    images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`                })
+                    images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`
+                })
             });
             // images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`
             // images: `http://localhost:4000/assets/${this.image}`
@@ -189,8 +201,8 @@ export class ProductsComponent implements OnInit {
       this.imgUploads = event.target.files[0].name;
 
       try{
-        await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
-        // await fetch(`http://localhost:4000/upload`, {
+        // await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
+        await fetch(`http://localhost:4000/upload`, {
             method: 'POST',
             body: formData
         });
