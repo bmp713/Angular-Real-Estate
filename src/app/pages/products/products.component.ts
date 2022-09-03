@@ -6,6 +6,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import axios from 'axios';
 
 @Component({
     selector: 'app-products',
@@ -17,18 +18,9 @@ export class ProductsComponent implements OnInit {
     productsCount: number = 10;
     productByName: any = "";
     products: any;
-    upload: any;
 
-    productInfo: any = 	{
-        id: "",
-        city: "",
-        name: "",
-        type: "",
-        description: "",
-        rooms: "",
-        price: "",
-        img: ""
-    };
+    upload: any = "";
+    imgUploads: any;
 
     id: any;
     name: any;
@@ -42,15 +34,15 @@ export class ProductsComponent implements OnInit {
 
     constructor( private router: Router, public route: ActivatedRoute, private http:HttpClient){
 
-        this.http.get('http://angular-real-estate-back.herokuapp.com/read')
-        // this.http.get('http://localhost:4000/read')
-            .toPromise()
-            .then( (data) => {
-                this.products = data;
-                console.log("this.products => ", this.products);
-            });
-
-        console.log("this.products => ", this.products);
+        // this.http.get('http://angular-real-estate-back.herokuapp.com/read')
+        // // this.http.get('http://localhost:4000/read')
+        //     .toPromise()
+        //     .then( (data) => {
+        //         // this.products = data;
+        //         this.products = data.reverse();
+        //         console.log("this.products => ", this.products);
+        //     });
+        this.readProducts();
     }
 
     ngOnInit(): void {}
@@ -75,15 +67,16 @@ export class ProductsComponent implements OnInit {
             // await fetch("http://localhost:4000/read")
               .then( response => response.json() )
               .then( data => {
-                  this.products = data;
+                  // this.products = data;
+                  this.products = data.reverse();
+
 
                   // sort products here
 
-                  console.log("XXX products.json => ", this.products)
+                  console.log("products.json => ", this.products)
             });
         }catch(error){}
     }
-
 
     readProductsReverse = async () => {
       try{
@@ -91,7 +84,8 @@ export class ProductsComponent implements OnInit {
           // await fetch("http://localhost:4000/read")
             .then( response => response.json() )
             .then( data => {
-                this.products = data.reverse();
+                // this.products = data.reverse();
+                this.products = data;
 
                 // sort products here
 
@@ -141,7 +135,6 @@ export class ProductsComponent implements OnInit {
         console.log("createProperty()");
 
         try{
-
             this.id = Math.floor(Math.random() * 10000000000000000);
 
             await fetch(`http://angular-real-estate-back.herokuapp.com/create`, {
@@ -158,9 +151,11 @@ export class ProductsComponent implements OnInit {
                     description: this.description,
                     rooms: this.rooms,
                     price: this.price,
-                    image: this.image
-                })
+                    images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`                })
             });
+            // images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`
+            // images: `http://localhost:4000/assets/${this.image}`
+
 
             this.readProducts();
             this.router.navigate(['/products']);
@@ -172,28 +167,51 @@ export class ProductsComponent implements OnInit {
 
 
   fileSelected = async ( event ) => {
-      console.log("file upload = ", event.target.files[0]);
+      console.log("file target = ", event.target);
       console.log("file name = ", event.target.files[0].name);
 
-      const data = new FormData();
-      data.append( 'upload', event.target.files[0] );
+      // Preview image
+      let reader = new FileReader();
+      reader.readAsDataURL( event.target.files[0] );
 
-      // send post request to node
-      try{
-        // await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
-        await fetch(`http://localhost:4000/upload`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json' ,
-            },
-            body: JSON.stringify({
-                image: event.target.files[0].name
-            })
-      });
+      reader.onload = ( event:any ) => {
+          console.log("event.target = ", event.target);
 
-      }catch(err){
-            console.error(err);
+          // Assign to preview image src
+          this.upload = reader.result;
       }
+
+
+
+      const formData = new FormData();
+      formData.append( 'image', event.target.files[0], event.target.files[0].name );
+
+      this.imgUploads = event.target.files[0].name;
+
+      try{
+        await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
+        // await fetch(`http://localhost:4000/upload`, {
+            method: 'POST',
+            body: formData
+        });
+      }catch(err){
+          console.error(err);
+      }
+
+
+      // this.http.post('http://localhost:4000/upload', formData, { observe: 'response' })
+      //     .subscribe( (response) => {
+      //         if (response.status === 200) {
+      //             // this.upload = response;
+      //             console.log("HTTP response = ", response)
+      //             let successResponse = this.upload.body.message;
+      //         }
+      //         else{
+      //             console.log("There has been an error, response = ", response);
+      //         }
+      //     }
+      // );
+
 
   }
 

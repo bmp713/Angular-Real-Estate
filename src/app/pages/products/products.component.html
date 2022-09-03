@@ -97,10 +97,6 @@
             </button>
             <br><br>
 
-
-
-
-
             <!-- <form #property="ngForm" (ngSubmit)="createProperty()"> -->
             <form>
                 <h2>Property</h2>
@@ -147,29 +143,29 @@
                     [(ngModel)]="image"
                     (change)="fileSelected($event)"
                 >
+
+                <img class="mx-2" width="50%" src={{this.upload}}>
+
                 <input class="btn-black" type="submit" value="Create"
                     (click)="createProperty( address.value, city.value, price.value, description.value, rooms.value, type.value, image.value)"
                 >
             </form>
-
-
-
         </div>
 
 
         <div class="productList my-5 col-lg-8 text-left ">
-            <div class="row justify-content-center align-items-start">
+            <div class="row justify-content-center align-items-end">
                 <button
                     class="text-center"
-                    style="width:45%; color:#000f"
+                    style="width:45%;"
                     (click)="readProducts()"
-                >Ascending
+                >Newest
                 </button>
                 <button
                     class="text-center"
-                    style="width:45%; color:#000f"
+                    style="width:45%;"
                     (click)="readProductsReverse()"
-                >Descending
+                >Oldest
                 </button>
                 <ng-container
                     *ngFor="let product of products; let i = index"
@@ -200,7 +196,7 @@
                         class="product col-lg-5 text-left"
                     >
                         <img width="100%" src={{this.product?.img}}>
-                        <strong style="font-weight:700; font-size:32px">${{this.product.price}}.00</strong><br>
+                        <strong style="font-weight:700; font-size:32px">${{this.product.price}}</strong><br>
                         <h5>{{this.product.name}}</h5>
                         <p style="font-weight:500; font-size:14px">
                         {{this.product.description}}<br><br>
