@@ -201,8 +201,8 @@ export class ProductsComponent implements OnInit {
       this.imgUploads = event.target.files[0].name;
 
       try{
-        // await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
-        await fetch(`http://localhost:4000/upload`, {
+        await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
+        // await fetch(`http://localhost:4000/upload`, {
             method: 'POST',
             body: formData
         });
