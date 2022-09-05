@@ -73,9 +73,18 @@
                     #description name="description" type="textarea" rows="4"
                     value={{this.productInfo?.description}}
                 > </textarea><br>
+                <input
+                    type="file"
+                    name="image"
+                    placeholder="Image"
+                    [(ngModel)]="image"
+                    (change)="fileSelected($event)"
+                >
+                <!-- <img width="20%;" src="{{this.productInfo?.img}}"> -->
+                <br>
                 <button
                     type="submit" class="submit"
-                    (click)="updateProduct(city.value, name.value, type.value, color.value, price.value, description.value)"
+                    (click)="updateProduct(city.value, name.value, type.value, color.value, price.value, description.value, this.productInfo?.img)"
                 >Update</button><br>
                 <span *ngIf="this.error" style="color:red">{{this?.error}}<br></span>
                 <br>

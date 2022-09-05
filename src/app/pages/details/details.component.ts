@@ -3,6 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 
+// Firebase
+import { initializeApp } from "firebase/app";
+import { ref, getStorage, getDownloadURL, uploadBytes } from "firebase/storage";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBHgOaPFiBZ5Uh3LZLTXqcWwtQl5w-JEtQ",
+  authDomain: "node-real-estate-d86a8.firebaseapp.com",
+  projectId: "node-real-estate-d86a8",
+  storageBucket: "node-real-estate-d86a8.appspot.com",
+  messagingSenderId: "937364880252",
+  appId: "1:937364880252:web:881f08b151198ec25fc2f9",
+  measurementId: "G-TQLPGEFEJX"
+};
+
 @Component({
     selector: 'app-details',
     templateUrl: './details.component.html',
@@ -21,6 +35,10 @@ export class DetailsComponent implements OnInit {
     price: any;
     description: any;
     error: string = "";
+
+    url: any;
+    image: any;
+    upload: any;
 
     ngOnInit(): void{}
     ngOnDestroy(): void{}
@@ -67,7 +85,13 @@ export class DetailsComponent implements OnInit {
     }
 
     // Update individual products with Node API
-    updateProduct = async (city:string, name:string, type:string, rooms:string, price:string, description:string) => {
+    updateProduct = async (city:string, name:string, type:string, rooms:string, price:string, description:string, image:string) => {
+
+
+        // this.url = image;
+        console.log("updateProduct() image = ", image);
+        console.log("updateProduct() this.url = ", this.url);
+
 
         if( !price || !rooms || !description || !type ){
             this.error = "*Type, price, description, and rooms are required";
@@ -88,8 +112,8 @@ export class DetailsComponent implements OnInit {
         this.error = "";
 
         try{
-            await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
-            // await fetch(`http://localhost:4000/update/${this.id}`, {
+            // await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
+            await fetch(`http://localhost:4000/update/${this.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' ,
@@ -101,7 +125,8 @@ export class DetailsComponent implements OnInit {
                     type: type,
                     description: description,
                     rooms: rooms,
-                    price: price
+                    price: price,
+                    img: this.url
                 })
             });
             this.router.navigate(['/products']);
@@ -130,6 +155,83 @@ export class DetailsComponent implements OnInit {
               console.error(err);
           }
     }
+
+
+
+
+  // Process selected image file
+  fileSelected = async ( event ) => {
+    console.log("file target = ", event.target);
+    console.log("file name = ", event.target.files[0].name);
+
+    // Preview image
+    let reader = new FileReader();
+    reader.readAsDataURL( event.target.files[0] );
+    //this.productInfo.img = reader.readAsDataURL( event.target.files[0] );
+
+    reader.onload = ( event:any ) => {
+        console.log("event.target = ", event.target);
+
+        // Assign to preview image src
+        this.upload = reader.result;
+    }
+
+    // Upload image to Firestore from Angular
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Cloud Storage reference
+    const storage = getStorage(app);
+
+    const file = event.target.files[0];
+    const storageRef = ref(storage, 'assets/'+ file.name );
+
+      uploadBytes(storageRef, file )
+          .then( (snapshot) => {
+              console.log('Uploaded file, ', file);
+              console.log('snapshot =>', snapshot);
+
+              getDownloadURL(snapshot.ref).then( (url) => {
+                  console.log('getDownloadURL() url =>', url);
+                  this.url =  url;
+                  this.productInfo.img = url;
+              });
+          })
+          .catch( (error) => {
+              console.log("File error =>", error);
+          })
+
+
+    // Upload to Node API
+    const formData = new FormData();
+    formData.append( 'image', event.target.files[0], event.target.files[0].name );
+
+    // this.imgUploads = event.target.files[0].name;
+
+    try{
+      await fetch(`http://angular-real-estate-back.herokuapp.com/upload`, {
+      // await fetch(`http://localhost:4000/upload`, {
+          method: 'POST',
+          body: formData
+      });
+    }catch(err){
+        console.error(err);
+    }
+
+
+    // this.http.post('http://localhost:4000/upload', formData, { observe: 'response' })
+    //     .subscribe( (response) => {
+    //         if (response.status === 200) {
+    //             // this.upload = response;
+    //             console.log("HTTP response = ", response)
+    //             let successResponse = this.upload.body.message;
+    //         }
+    //         else{
+    //             console.log("There has been an error, response = ", response);
+    //         }
+    //     }
+    // );
+}
+
 }
 
 

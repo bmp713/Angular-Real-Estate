@@ -32,6 +32,7 @@ export class ProductsComponent implements OnInit {
     productsCount: number = 10;
     productByName: any = "";
     products: any;
+    product: any;
 
     url: any = "";
     upload: any = "";
