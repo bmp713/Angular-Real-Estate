@@ -28,8 +28,8 @@ export class DetailsComponent implements OnInit {
 
     constructor( private router: Router, public route: ActivatedRoute ){
         try{
-          // fetch(`http://angular-real-estate-back.herokuapp.com/read/${this.route.snapshot.paramMap.get('id')}`)
-          fetch(`http://localhost:4000/read/${this.route.snapshot.paramMap.get('id')}`)
+          fetch(`http://angular-real-estate-back.herokuapp.com/read/${this.route.snapshot.paramMap.get('id')}`)
+          // fetch(`http://localhost:4000/read/${this.route.snapshot.paramMap.get('id')}`)
               .then( response => response.json() )
               .then( data => {
                   this.productInfo = data;
