@@ -157,8 +157,6 @@ export class DetailsComponent implements OnInit {
     }
 
 
-
-
   // Process selected image file
   fileSelected = async ( event ) => {
     console.log("file target = ", event.target);
