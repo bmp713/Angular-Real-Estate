@@ -8,6 +8,20 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import axios from 'axios';
 
+// Firebase
+import { initializeApp } from "firebase/app";
+import { ref, getStorage, getDownloadURL, uploadBytes } from "firebase/storage";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBHgOaPFiBZ5Uh3LZLTXqcWwtQl5w-JEtQ",
+  authDomain: "node-real-estate-d86a8.firebaseapp.com",
+  projectId: "node-real-estate-d86a8",
+  storageBucket: "node-real-estate-d86a8.appspot.com",
+  messagingSenderId: "937364880252",
+  appId: "1:937364880252:web:881f08b151198ec25fc2f9",
+  measurementId: "G-TQLPGEFEJX"
+};
+
 @Component({
     selector: 'app-products',
     templateUrl: './products.component.html',
@@ -19,19 +33,9 @@ export class ProductsComponent implements OnInit {
     productByName: any = "";
     products: any;
 
+    url: any = "";
     upload: any = "";
     imgUploads: any;
-
-    // productInfo: any = 	{
-    //     id: "",
-    //     city: "",
-    //     name: "",
-    //     type: "",
-    //     description: "",
-    //     rooms: "",
-    //     price: "",
-    //     img: ""
-    // };
 
     id: any;
     name: any;
@@ -141,9 +145,8 @@ export class ProductsComponent implements OnInit {
 
 
     // Create new property
-    // createProperty = async (address:string, price:string, city:string, type:string, rooms:string, description:string, image:string) => {
     createProperty = async ( address:string, city:string, price:string, description:string, rooms:string, type:string, image:string ) => {
-        console.log("createProperty()");
+        console.log("createProperty() this.url = ", this.url);
 
         try{
             this.id = Math.floor(Math.random() * 10000000000000000);
@@ -162,11 +165,12 @@ export class ProductsComponent implements OnInit {
                     description: this.description,
                     rooms: this.rooms,
                     price: this.price,
-                    images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`
+                    img: this.url
                 })
             });
-            // images: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`
-            // images: `http://localhost:4000/assets/${this.image}`
+            // img: `http://angular-real-estate-back.herokuapp.com/assets/${this.image}`
+            // img: `http://localhost:4000/assets/${this.image}`
+            // img: `../assets/${this.image}`
 
             this.readProducts();
             this.router.navigate(['/products']);
@@ -177,6 +181,7 @@ export class ProductsComponent implements OnInit {
   }
 
 
+  // Process selected image file
   fileSelected = async ( event ) => {
       console.log("file target = ", event.target);
       console.log("file name = ", event.target.files[0].name);
@@ -192,8 +197,31 @@ export class ProductsComponent implements OnInit {
           this.upload = reader.result;
       }
 
+      // Upload image to Firestore from Angular
+      const app = initializeApp(firebaseConfig);
+
+      // Initialize Cloud Storage reference
+      const storage = getStorage(app);
+
+      const file = event.target.files[0];
+      const storageRef = ref(storage, 'assets/'+ file.name );
+
+        uploadBytes(storageRef, file )
+            .then( (snapshot) => {
+                console.log('Uploaded file, ', file);
+                console.log('snapshot =>', snapshot);
+
+                getDownloadURL(snapshot.ref).then( (url) => {
+                    console.log('getDownloadURL() url =>', url);
+                    this.url =  url;
+                });
+            })
+            .catch( (error) => {
+                console.log("File error =>", error);
+            })
 
 
+      // Upload to Node API
       const formData = new FormData();
       formData.append( 'image', event.target.files[0], event.target.files[0].name );
 

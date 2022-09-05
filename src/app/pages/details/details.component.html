@@ -1,7 +1,7 @@
 <div class='page details m-0 p-0'>
     <div
         class="top row justify-content-lg-center align-items-start"
-        style.background-image="linear-gradient(#0007,#0007), url('{{this.productInfo.img}}')"
+        style.background-image="linear-gradient(#0007,#0007), url('{{this.productInfo?.img}}')"
     >
         <a href="http://localhost:4200/products">
             <img class="m-3" height="30" src="../assets/Zillow_Wordmark_Blue_RGB lrg.png">
@@ -32,7 +32,7 @@
         <div class="col-lg-5 text-left">
             <div class="row justify-content-lg-center align-items-start">
               <img width="100%" src={{this.productInfo?.img}}>
-              {{this.productInfo?.img}}
+              <span style="font-size:10px">{{this.productInfo?.img}}</span>
             </div>
         </div>
         <div class="col-lg-5 text-left px-lg-5">
