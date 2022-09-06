@@ -111,9 +111,16 @@ export class DetailsComponent implements OnInit {
         }
         this.error = "";
 
+        console.log("update() = > this.url = ", this.url);
+        console.log("update() = > this.productInfo.img = ", this.productInfo.img);
+
+        // If new image loaded in update
+        if( this.url == null)
+            this.url = image;
+
         try{
-            await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
-            // await fetch(`http://localhost:4000/update/${this.id}`, {
+            // await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
+            await fetch(`http://localhost:4000/update/${this.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' ,
@@ -192,7 +199,8 @@ export class DetailsComponent implements OnInit {
                   console.log('getDownloadURL() url =>', url);
                   this.url =  url;
 
-                  if( this.productInfo.img != url)
+                  // if( this.productInfo.img != url)
+                  if( this.productInfo.img != url )
                       this.productInfo.img = url;
               });
           })
