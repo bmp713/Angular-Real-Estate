@@ -119,8 +119,8 @@ export class DetailsComponent implements OnInit {
             this.url = image;
 
         try{
-            // await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
-            await fetch(`http://localhost:4000/update/${this.id}`, {
+            await fetch(`http://angular-real-estate-back.herokuapp.com/update/${this.id}`, {
+            // await fetch(`http://localhost:4000/update/${this.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' ,
