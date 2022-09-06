@@ -5,7 +5,7 @@
 
             <div class="row justify-content-lg-evenly align-items-center">
                 <div class="col-lg-12 text-left text-white">
-                    <a href="http://localhost:4200/products">
+                    <a href="http://angular-real-estate.herokuapp.com">
                         <img class="m-3" height="35" src="../assets/Zillow_Wordmark_Blue_RGB lrg.png">
                     </a><br>
                 </div>
@@ -152,7 +152,7 @@
         </div>
 
 
-        <div class="productList my-5 col-lg-8 text-left ">
+        <div id="properties" class="productList my-5 col-lg-8 text-left ">
             <div class="row justify-content-center align-items-end">
                 <button
                     class="text-center"
@@ -182,10 +182,12 @@
                         Type: {{this.product.type}}<br>
                         Rooms: {{this.product.rooms}}<br>
                         </p>
-                        <a class="text-decoration-underline" routerLink="/details/{{this.product.id}}/#page" fragment="top">View Property</a>
+                        <a routerLink="/details/{{this.product.id}}"><strong class="text-decoration-underline">View Property ></strong></a>
                     </div>
                 </ng-container><br><br>
             </div>
+
+
             <div class="row justify-content-center align-items-start">
                 <ng-container
                     *ngFor="let product of products; let i = index"
@@ -203,8 +205,7 @@
                         Type: {{this.product.type}}<br>
                         Rooms: {{this.product.rooms}}<br>
                         </p>
-                        <a routerLink="/details/{{this.product.id}}">
-                            <strong class="text-decoration-underline">View Property ></strong></a>
+                        <a routerLink="/details/{{this.product.id}}"><strong class="text-decoration-underline">View Property ></strong></a>
                     </div>
                 </ng-container><br><br>
             </div>
