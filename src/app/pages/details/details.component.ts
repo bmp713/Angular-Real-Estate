@@ -191,7 +191,9 @@ export class DetailsComponent implements OnInit {
               getDownloadURL(snapshot.ref).then( (url) => {
                   console.log('getDownloadURL() url =>', url);
                   this.url =  url;
-                  this.productInfo.img = url;
+
+                  if( this.productInfo.img != url)
+                      this.productInfo.img = url;
               });
           })
           .catch( (error) => {
