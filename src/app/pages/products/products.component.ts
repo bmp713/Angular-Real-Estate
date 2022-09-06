@@ -175,7 +175,7 @@ export class ProductsComponent implements OnInit {
 
             this.readProducts();
             // this.router.navigate(['/products']);
-            this.router.navigate(['/details/'+ this.id ]);
+            // this.router.navigate(['/details/'+ this.id ]);
 
             }catch(err){
                 console.error(err);
