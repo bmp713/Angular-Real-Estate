@@ -8,6 +8,8 @@ body, html{
     padding: 0px;
     box-sizing: border-box;
     overflow-x: hidden;
+    scroll-behavior: auto !important;
+
 }
 .container-fluid{
     padding: 0px;
