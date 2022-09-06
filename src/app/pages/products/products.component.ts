@@ -238,7 +238,6 @@ export class ProductsComponent implements OnInit {
           console.error(err);
       }
 
-
       // this.http.post('http://localhost:4000/upload', formData, { observe: 'response' })
       //     .subscribe( (response) => {
       //         if (response.status === 200) {
