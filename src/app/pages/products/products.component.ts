@@ -174,7 +174,8 @@ export class ProductsComponent implements OnInit {
             // img: `../assets/${this.image}`
 
             this.readProducts();
-            this.router.navigate(['/products']);
+            // this.router.navigate(['/products']);
+            this.router.navigate(['/details/'+ this.id ]);
 
             }catch(err){
                 console.error(err);
@@ -237,6 +238,7 @@ export class ProductsComponent implements OnInit {
       }catch(err){
           console.error(err);
       }
+
 
       // this.http.post('http://localhost:4000/upload', formData, { observe: 'response' })
       //     .subscribe( (response) => {

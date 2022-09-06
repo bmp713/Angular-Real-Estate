@@ -13,6 +13,7 @@ const routes: Routes = [
     // imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
     imports: [RouterModule.forRoot(
         routes,
+        // {scrollPositionRestoration: 'enabled'}
         // {anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'}
       ),
     ],
