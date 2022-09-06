@@ -45,6 +45,8 @@ export class DetailsComponent implements OnInit {
     ngOnChanges(): void{}
 
     constructor( private router: Router, public route: ActivatedRoute ){
+
+        window.scrollTo(0, 0);
         try{
           fetch(`http://angular-real-estate-back.herokuapp.com/read/${this.route.snapshot.paramMap.get('id')}`)
           // fetch(`http://localhost:4000/read/${this.route.snapshot.paramMap.get('id')}`)
