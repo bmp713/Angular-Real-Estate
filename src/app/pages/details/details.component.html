@@ -13,7 +13,7 @@
                 <p>{{this.productInfo?.description}}</p>
                 Property {{this.productInfo?.id}}<br><br>
                 <!-- <button style="width:50%" class="btn-white-outline">Learn more</button> -->
-                <a style="width:50%; font-size:14px" class="btn-white-outline text-center" routerLink='/products'>More Properties</a>
+                <a style="width:50%; font-size:14px" class="btn-white-outline text-center" routerLink="/" fragment="details">More Properties</a>
 
             </div>
         </div>
@@ -24,7 +24,7 @@
         </div> -->
     </div>
 
-    <div class="row justify-content-center align-items-start p-5">
+    <div id="details" class="row justify-content-center align-items-start p-5">
         <h1>Details</h1>
         <div class="col-lg-2 text-left">
             <a routerLink='/products'><strong>< Back To Properties</strong></a>

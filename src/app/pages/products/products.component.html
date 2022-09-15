@@ -173,7 +173,9 @@
                         *ngIf="this.product.city === city || this.product.rooms === rooms || this.product.type === type"
                         class="product col-lg-5 text-left"
                     >
-                        <img width="100%" src={{this.product?.img}}>
+                        <a routerLink="/details/{{this.product.id}}">
+                            <img width="100%" src={{this.product?.img}}>
+                        </a>
                         <strong style="font-weight:700; font-size:32px">${{this.product.price}}</strong><br>
                         <h5>{{this.product.name}}</h5>
                         <p>
@@ -195,7 +197,9 @@
                         *ngIf="i < this.productsCount && !city && !rooms && !type"
                         class="product col-lg-5 text-left"
                     >
-                        <img width="100%" src={{this.product?.img}}>
+                        <a routerLink="/details/{{this.product.id}}">
+                            <img width="100%" src={{this.product?.img}}>
+                        </a>
                         <strong style="font-weight:700; font-size:32px">${{this.product.price}}</strong><br>
                         <h5>{{this.product.name}}</h5>
                         <p style="font-weight:500; font-size:14px">
