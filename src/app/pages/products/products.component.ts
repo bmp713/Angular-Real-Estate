@@ -222,7 +222,6 @@ export class ProductsComponent implements OnInit {
                 console.log("File error =>", error);
             })
 
-
       // Upload to Node API
       const formData = new FormData();
       formData.append( 'image', event.target.files[0], event.target.files[0].name );
