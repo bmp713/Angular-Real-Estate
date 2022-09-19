@@ -100,12 +100,14 @@ body, html{
     background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (5).jpg") no-repeat; background-position: 0% 65%;
     background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (8).jpg") no-repeat; background-position: 0% 100%;
     background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (11).jpg") no-repeat; background-position: 0% 70%;
-    background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (52).jpg") no-repeat; background-position: 0% 90%;
-    background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (55).jpg") no-repeat; background-position: 0% 99%;
+
+    // background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (55).jpg") no-repeat; background-position: 0% 99%;
+    // background-size: 135% !important;
+
+    background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (171).jpg") no-repeat; background-position: 0% 90%;
 
 
-    background-size: 135%;
-    // background-size: cover;
+    background-size: cover;
 }
 @media( max-width:900px){
     .top{
@@ -140,13 +142,26 @@ body, html{
 
       // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (469).jpg") no-repeat; background-position: 30% 50%;
       // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (27).jpg") no-repeat; background-position: 20% 50%;
-      // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (92).jpg") no-repeat; background-position: 0% 50%;
-      background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (27).jpg") no-repeat; background-position: 70% 50%;
-      background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (3).jpg") no-repeat; background-position: 5% 5%;
+
+
+      // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (92).jpg") no-repeat; background-position: 5% 90%;
+      // background-size: 550% !important;
+
+
+      // background: linear-gradient(to right, #0007,#0007), url("./assets/real-estate (27).jpg") no-repeat; background-position: 70% 50%;
+      // background-size: 400% !important;
+
+
+      background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (3).jpg") no-repeat; background-position: 7% 50%;
+      background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (171).jpg") no-repeat; background-position: 24% 100%;
+
+      background-size: 500% !important;
 
 
       // background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (11).jpg") no-repeat; background-position: 100% 100%;
-      // background-size: 460% !important;
+      // background-size: 450% !important;
+
+
       // background: linear-gradient(to right, #0005,#0005), url("./assets/real-estate (55) mobile.jpg") no-repeat; background-position: 40% 90%;
       background-size: cover;
     }
